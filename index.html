@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>پنل من</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b1120;color:#f1f5f9;font-family:Arial,sans-serif;min-height:100vh;display:grid;place-items:center;padding:20px}
+.card{width:100%;max-width:390px;background:#151e2e;border:1px solid #29364a;border-radius:20px;padding:28px}
+h1{font-size:25px}
+p{color:#aab7ca;line-height:1.8}
+label{display:block;margin:16px 0 8px}
+input{width:100%;padding:13px;border-radius:10px;border:1px solid #3a4960;background:#0b1120;color:white;font-size:16px}
+button{width:100%;padding:14px;margin-top:20px;border:0;border-radius:10px;background:#2563eb;color:white;font-size:16px}
+#dashboard{display:none;width:100%;max-width:500px}
+.tile{background:#151e2e;border:1px solid #29364a;padding:18px;border-radius:14px;margin-top:12px}
+.small{font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+<main class="card" id="login">
+<h1>خوش آمدید</h1>
+<p>ورود آزمایشی به پنل شخصی</p>
+<form id="demoForm">
+<label for="demoUser">نام نمایشی</label>
+<input id="demoUser" placeholder="نام دلخواه" required>
+<button type="submit">ورود به داشبورد</button>
+</form>
+<p class="small">نمونه نمایشی؛ هیچ رمز یا اطلاعاتی ذخیره نمی‌شود.</p>
+</main>
+<main id="dashboard">
+<h1>داشبورد من 👋</h1>
+<p>خوش آمدی، <span id="userLabel"></span></p>
+<div class="tile">📊 وضعیت پنل: فعال (آزمایشی)</div>
+<div class="tile">⚙️ پنل شخصی تو آماده توسعه است.</div>
+<button id="backBtn">خروج از داشبورد</button>
+</main>
+<script>
+document.getElementById('demoForm').addEventListener('submit',function(e){
+e.preventDefault();
+document.getElementById('userLabel').textContent=document.getElementById('demoUser').value;
+document.getElementById('login').style.display='none';
+document.getElementById('dashboard').style.display='block';
+});
+document.getElementById('backBtn').addEventListener('click',function(){
+document.getElementById('dashboard').style.display='none';
+document.getElementById('login').style.display='block';
+});
+</script>
+</body>
+</html>
